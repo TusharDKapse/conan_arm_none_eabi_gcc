@@ -1,0 +1,10 @@
+# Ignore everything inside test_package except source files and conanfile.py
+/test_package/metadata/
+/test_package/*.sh
+/test_package/*.bat
+
+# Optional: ignore object and binary files in test_package
+/test_package/*.o
+/test_package/*.elf
+/test_package/*.map
+/test_package/*.lst
