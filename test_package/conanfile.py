@@ -7,10 +7,10 @@ import os
 class TestPackageConan(ConanFile):
     settings = "os", "arch"
     test_type = "explicit"
-    #generators = "VirtualBuildEnv"
+    generators = "VirtualBuildEnv"
     
     def requirements(self):
-        self.requires(self.tested_reference_str)
+        self.tool_requires(self.tested_reference_str)
 
     def test(self):
         if can_run(self):
