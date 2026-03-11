@@ -23,7 +23,7 @@ class ArmNoneEabiGccConan(ConanFile):
         else:
             raise Exception("Unsupported OS")
 
-        get(self, url, destination=self.build_folder, strip_root=True)
+        get(self, url, destination=self.build_folder)
 
     def package(self):
         copy(self, "*", src=self.build_folder, dst=self.package_folder)
