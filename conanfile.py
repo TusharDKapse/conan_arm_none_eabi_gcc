@@ -16,14 +16,16 @@ class ArmNoneEabiGccConan(ConanFile):
             url = ("https://developer.arm.com/-/media/Files/downloads/gnu/"
                    "15.2.rel1/binrel/"
                    "arm-gnu-toolchain-15.2.rel1-mingw-w64-x86_64-arm-none-eabi.zip")
+            
+            get(self, url, destination=self.build_folder)
         elif self.settings.os == "Linux":
             url = ("https://developer.arm.com/-/media/Files/downloads/gnu/"
                    "15.2.rel1/binrel/"
                    "arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi.tar.xz")
+            
+            get(self, url, destination=self.build_folder, strip_root = True)
         else:
             raise Exception("Unsupported OS")
-
-        get(self, url, destination=self.build_folder)
 
     def package(self):
         copy(self, "*", src=self.build_folder, dst=self.package_folder)
